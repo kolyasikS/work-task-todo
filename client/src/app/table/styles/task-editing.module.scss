@@ -1,0 +1,122 @@
+@import "src/styles/mixins";
+@import "src/styles/variables";
+
+.form {
+    background: $form-bg;
+    border-radius: 20px;
+    opacity: 0;
+    overflow: hidden;
+    transform-origin: center;
+    animation: 0.5s ease-in-out fade-up forwards;
+    height: 450px;
+}
+
+@keyframes fade-up {
+    0% {
+        width: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 700px;
+        opacity: 1;
+    }
+}
+
+%roll {
+    background: url("../../../assets/images/svitok.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    z-index: 100;
+}
+.rolls {
+    @include flexCenter();
+    width: 700px;
+    height: calc(100% + 350px);
+    position: absolute;
+}
+
+.roll__left {
+    @extend %roll;
+    left: 300px;
+    animation: 0.6s ease-in-out spreading-apart-right forwards;
+}
+.roll__right {
+    @extend %roll;
+    right: 300px;
+    animation: 0.6s ease-in-out spreading-apart-left forwards;
+    transform: rotatey(180deg);
+}
+
+@keyframes spreading-apart-right {
+    0% {
+        left: 300px;
+    }
+    100% {
+        left: 650px;
+    }
+}
+@keyframes spreading-apart-left {
+    0% {
+        right: 300px;
+    }
+    100% {
+        right: 650px;
+    }
+}
+
+.form__inner {
+    @include flexCenter(true);
+    width: 100%;
+    padding: 25px 70px;
+    background: inherit;
+    gap: 50px;
+
+}
+
+.form__wrapper {
+    @include flexCenter(true);
+    justify-content: space-between;
+    background: inherit;
+    opacity: 0;
+    animation: 0.5s ease-in-out fade-up-inner forwards;
+    animation-delay: 0.5s;
+    height: 100%;
+    padding: 20px 0;
+}
+
+@keyframes fade-up-inner {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.form__block {
+    @include flexCenter();
+    width: 100%;
+    background: inherit;
+    gap: 30px;
+}
+
+
+
+.form__title {
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+    margin: 20px 0;
+}
+
+.form__btns {
+    @include flexCenter();
+    justify-content: flex-end;
+    width: 100%;
+    padding: 40px 40px 20px;
+    gap: 40px;
+}

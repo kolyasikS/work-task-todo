@@ -1,0 +1,10 @@
+@import "src/styles/mixins";
+
+.error__wrapper {
+    @include flexCenter(true);
+    width: 100%;
+    background: inherit;
+    justify-content: flex-start;
+    gap: 5px;
+    position: relative;
+}

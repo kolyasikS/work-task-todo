@@ -1,0 +1,19 @@
+%classicButton {
+    width: 100%;
+    font-size: 18px;
+    padding: 10px 40px;
+    font-family: inherit;
+    font-weight: 700;
+    background: #2f393b;
+    border: 0;
+    border-radius: 5px;
+    transition: all 0.3s;
+
+    &:hover {
+        background: #3a4c4f;
+    }
+
+    &:active {
+        background: #234247;
+    }
+}

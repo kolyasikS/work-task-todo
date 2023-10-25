@@ -1,0 +1,7 @@
+@import "src/styles/mixins";
+
+.table {
+    @include flexCenter(true);
+    width: 100%;
+    padding: 100px 0;
+}

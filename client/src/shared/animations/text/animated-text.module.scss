@@ -1,0 +1,40 @@
+.whitespace {
+    width: 5px;
+    display: inline-block;
+}
+.word {
+    display: inline-block;
+}
+.charAnim {
+    opacity: 0;
+    position: relative;
+    animation: fade-up 1s linear forwards;
+}
+.jump {
+    animation: fade-up 1s linear forwards,
+    jump 0.3s linear forwards;
+
+    top: 10px;
+}
+
+.jump-header {
+    animation: fade-up 0.3s linear forwards,
+    jump 0.25s linear forwards;
+
+    top: 10px;
+}
+
+@keyframes jump {
+    to {
+        top: 0px;
+    }
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,88 @@
+@import "src/styles/mixins";
+@import "src/styles/variables";
+
+.table {
+    min-width: 500px;
+    table {
+        overflow: visible;
+    }
+}
+
+.table__cell {
+    max-width: 400px;
+}
+
+.table__row {
+    transition: all .1s;
+    cursor: pointer;
+    position: relative;
+    &:hover {
+        background: #2b3031;
+    }
+}
+
+.empty__row, .table__header {
+    cursor: default;
+    &:hover {
+        background: inherit;
+    }
+}
+
+.table__row_create {
+}
+.table__cell_create {
+    text-align: center;
+    vertical-align: top;
+}
+
+.table__cell_create_plus {
+    @include flexCenter();
+    display: inline-flex;
+    position: relative;
+    background: #3B82f6;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+
+    &::before, &::after {
+        background: #fff;
+        content: '';
+        position: absolute;
+
+    }
+
+    &::before {
+        width: 15px;
+        height: 2px;
+    }
+
+    &::after {
+        height: 15px;
+        width: 2px;
+    }
+}
+
+.table__cell__delete {
+    position: absolute;
+    right: -20px;
+}
+
+.task__priority {
+    width: fit-content;
+}
+
+.task__processing {
+    color: #d1aa0f;
+}
+
+.task__done {
+    color: #12e31a;
+}
+
+.task__status {
+    width: 120px;
+}
+
+.task__priority, .task__status {
+    text-align: center;
+}
