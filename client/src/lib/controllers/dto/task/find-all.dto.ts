@@ -1,7 +1,7 @@
 export type FindTasksDto = {
     limit: number;
     offset: number;
+    orderPriority?: string;
     title?: string;
-    isDone?: boolean;
-    priority?: number;
+    status?: string;
 }

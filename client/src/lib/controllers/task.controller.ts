@@ -5,19 +5,15 @@ import {CreateTaskDto} from "@controllers/dto/task/create.dto";
 import {UpdateTaskDto} from "@controllers/dto/task/update.dto";
 
 export class TaskController {
-    static async find({limit, offset}: FindTasksDto) {
+    static async find(findTasksDto: FindTasksDto) {
         try {
             const response = await $api.get('task/',{
-                params: {
-                    limit,
-                    offset
-                },
+                params: findTasksDto,
                 timeout: 5000
             });
 
             return response.data;
         } catch (e) {
-            console.log(e);
             if (axios.isAxiosError(e)) {
                 return {
                     error: e?.response?.data?.error ?? 'Internal server error. Try again!',

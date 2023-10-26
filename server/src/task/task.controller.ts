@@ -7,12 +7,13 @@ import {
     Param,
     Delete,
     ValidationPipe,
-    UsePipes, UseFilters
+    UsePipes, UseFilters, Query
 } from "@nestjs/common";
 import { TaskService } from './task.service';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
 import { ValidationFilter } from "../exceptions/exception-filters/validation.filter";
+import { FindTasksDto } from "./dto/find-tasks.dto";
 
 @Controller('task')
 export class TaskController {
@@ -25,8 +26,8 @@ export class TaskController {
         return this.taskService.create(createTaskDto);
     }
     @Get()
-    findAll() {
-        return this.taskService.findAll();
+    find(@Query() findTasksDto: FindTasksDto) {
+        return this.taskService.find(findTasksDto);
     }
 
     @Patch(':id')

@@ -11,7 +11,7 @@ type ClassicInputProps = {
     px?: number;
     py?: number;
     inputStyle?: any;
-    children: any;
+    children?: any;
     error?: boolean;
 }
 const ClassicInput = memo(({

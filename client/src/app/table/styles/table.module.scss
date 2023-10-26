@@ -13,9 +13,9 @@
 }
 
 .table__row {
-    transition: all .1s;
     cursor: pointer;
     position: relative;
+    transition: all .1s;
     &:hover {
         background: #2b3031;
     }
@@ -68,7 +68,23 @@
 }
 
 .task__priority {
-    width: fit-content;
+    @include flexCenter();
+    gap: 5px;
+    transition: all .1s;
+    &:hover {
+        background: #2b3031;
+    }
+}
+
+.task__priority__direct {
+    @include flexCenter(true);
+    min-width: 15px;
+    min-height: 15px;
+    position: relative;
+}
+
+.task__priority__direct_bottom {
+    transform: rotate(180deg);
 }
 
 .task__processing {
