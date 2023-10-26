@@ -105,7 +105,8 @@ const TableTasks = ({serverTasks}: TableTasksProps) => {
         <div className={'relative'}>
             <Searching search={search} setSearch={setSearch}/>
             <div className={'relative flex mt-5'}>
-                <Table.Root variant={'surface'} className={styles.table}>
+                <div className={'relative'}>
+                    <Table.Root variant={'surface'} className={styles.table}>
                         <Table.Header>
                             <Table.Row className={`${styles.table__row} ${styles.table__header}`}>
                                 <Table.ColumnHeaderCell className={`${styles.table__cell} ${styles.task__title}`}>Title</Table.ColumnHeaderCell>
@@ -147,9 +148,10 @@ const TableTasks = ({serverTasks}: TableTasksProps) => {
                             updatedSuccessfully={fetchUsers}
                         />}
                     </Table.Root>
+                    <Loading isLoading={isLoading}/>
+                </div>
                 <Filters filters={filters} setFilters={setFilters}/>
             </div>
-            <Loading isLoading={isLoading}/>
         </div>
     );
 };
