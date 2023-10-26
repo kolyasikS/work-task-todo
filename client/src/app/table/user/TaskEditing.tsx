@@ -16,8 +16,11 @@ export enum TasksFormEditingTypes {
     EDIT_TASK = 'edit_task',
 }
 
-export type EditedTask = Omit<Task, 'id'> & {
+export interface EditedTask {
     id?: number;
+    title?: string;
+    priority?: number;
+    isDone?: boolean;
     type?: TasksFormEditingTypes;
 }
 
@@ -36,14 +39,13 @@ const TaskEditing = ({task, close, updatedSuccessfully}: UserEditingProps) => {
         setEditedTask(prev => ({...prev, isDone: value}));
     }, []);
     const setPriority = useCallback((value: number) => {
-        setEditedTask(prev => ({...prev, priority: value}));
+        setEditedTask(prev => ({...prev, priority: +value}));
     }, []);
 
     const cancel = useCallback((e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
         close();
     }, []);
-
     const [errors, setErrors] = useState<any>({});
     return (
         <ClassicDialog onClick={close}>
@@ -62,21 +64,21 @@ const TaskEditing = ({task, close, updatedSuccessfully}: UserEditingProps) => {
                             title={'Title'}
                         />
                         <div className={styles.form__block}>
-                            <div className={'flex items-center gap-8 w-fit'}>
+                            <div className={'flex items-center justify-center gap-10 w-max'}>
                                 <ErrorWrapper
                                     error={errors.priority}
                                 >
                                     <ClassicSelect label={'Priority'}
                                                    placeholder={'Priority'}
                                                    items={priorities}
-                                                   defaultValue={editedTask.priority.toString()}
+                                                   defaultValue={editedTask.priority?.toString()}
                                                    setSelectedItem={setPriority}
                                                    triggerStyle={{width: 120}}
                                     />
                                 </ErrorWrapper>
                                 <Text as={'label'} size={'3'} style={{width: '100%', maxWidth: 'fit-content'}}>
                                     <Flex gap="2">
-                                        <Checkbox size="2" color={'red'} defaultChecked={task.isDone}/> Done
+                                        <Checkbox size="2" color={'red'} defaultChecked={task.isDone} onCheckedChange={setStatus}/> Done
                                     </Flex>
                                 </Text>
                             </div>

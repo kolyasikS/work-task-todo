@@ -9,21 +9,8 @@ import {TaskController} from "@controllers/task.controller";
 async function getFirstPageOfTable() {
     const {tasks, count} = await TaskController.find({limit: 10, offset: 0});
     return {
-        tasks: [
-            {
-                id: 1,
-                title: 'I need to do laboratory work 2',
-                isDone: false,
-                priority: 3,
-            },
-            {
-                id: 2,
-                title: 'My name is Mykola Prymachenko',
-                isDone: true,
-                priority: 10,
-            }
-        ],
-        count: 1
+        tasks,
+        count
     };
 }
 const Page = async () => {

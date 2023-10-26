@@ -9,9 +9,8 @@ const Myself = () => {
             <p className={styles.myself__bio}>
                 Hello, I should say true...
                 <br/>I have been working hardly with this project)
-                I completed all tasks were in document and apart from them I wanted to create animation of russian ship&apos;s sinking,
-                but it would take some time and you asked me to send the project as fast as I can so next time).
-                Anyway it was good experience.
+                I completed all tasks were in document and passed the English test.
+                <br/>It was good experience.
             </p>
             <Signature/>
         </div>

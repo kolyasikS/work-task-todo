@@ -20,7 +20,6 @@ const FormSubmit = ({editedTask,
                     }: FormSubmitProps) => {
     const apply = useCallback((e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
-
         setIsLoading(true)
         const submitPromise = editedTask.type === TasksFormEditingTypes.EDIT_TASK
             ? TaskController

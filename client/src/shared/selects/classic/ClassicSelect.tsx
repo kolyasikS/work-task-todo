@@ -20,7 +20,7 @@ const ClassicSelect = memo(({
                             }: ClassicSelectProps) => {
     return (
         <div className={styles.select}>
-            <Select.Root defaultValue={defaultValue}
+            <Select.Root defaultValue={defaultValue ?? undefined}
                          onValueChange={(value) => setSelectedItem(value)}
                          size={'3'}
             >

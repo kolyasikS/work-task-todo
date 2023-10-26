@@ -65,7 +65,7 @@ export class TaskController {
             if (axios.isAxiosError(e)) {
                 return {
                     error: e?.response?.data?.error
-                        ?? e?.response?.data
+                        ?? e?.response?.data?.response
                         ?? 'Internal server error. Try again!',
                 }
             } else {

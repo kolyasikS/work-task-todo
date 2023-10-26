@@ -28,6 +28,7 @@ const Signature = () => {
 
 
     async function drawAsync() {
+        setIsDrawn(true);
         const coords = signature.split(';');
         ctx.current?.moveTo(JSON.parse(coords[0]).x, JSON.parse(coords[0]).y);
         for (let i = 0; i < coords.length; i++) {

@@ -4,23 +4,23 @@ export type Table = {
     page: number,
     limit: number,
     offset: number,
-    users: Task[]
+    tasks: Task[]
 }
 
 const initialState: Table = {
     page: 0,
     limit: 10,
     offset: 0,
-    users: [],
+    tasks: [],
 }
 const tableSlice = createSlice({
     name: 'table',
     initialState,
     reducers: {
-        setUsers(state, action: {payload: Task[]}) {
-            const users = action.payload;
+        setTasks(state, action: {payload: Task[]}) {
+            const tasks = action.payload;
 
-            state.users = users;
+            state.tasks = tasks;
         },
         setPage(state, action: {payload: number}) {
             const page = action.payload;
@@ -31,5 +31,5 @@ const tableSlice = createSlice({
     }
 });
 
-export const {setUsers, setPage} = tableSlice.actions;
+export const {setTasks, setPage} = tableSlice.actions;
 export default tableSlice.reducer;

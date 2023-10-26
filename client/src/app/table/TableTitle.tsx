@@ -1,7 +1,5 @@
 'use client';
 import React from 'react';
-import {useSelector} from "react-redux";
-import {selectUsername} from "../../lib/store/selectors/user.selectors";
 import AnimatedText from "@shared/animations/text/AnimatedText";
 
 const TableTitle = () => {

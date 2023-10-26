@@ -1,5 +1,4 @@
 import {Table} from "../slices/table.slice";
-import {state} from "sucrase/dist/types/parser/traverser/base";
 import {createSelector} from "reselect";
 
 interface RootState {
@@ -13,8 +12,8 @@ export const selectPage = (state: RootState) => {
     return state.table.page;
 }
 
-export const selectUsers = (state: RootState) => {
-    return state.table.users;
+export const selectTasks = (state: RootState) => {
+    return state.table.tasks;
 }
 
 const selectTable = (state: RootState) => {

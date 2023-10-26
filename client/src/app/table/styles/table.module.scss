@@ -80,9 +80,13 @@
 }
 
 .task__status {
-    width: 120px;
+    min-width: 120px;
 }
 
 .task__priority, .task__status {
     text-align: center;
+    vertical-align: middle;
+}
+.task__title {
+    width: 100%;
 }

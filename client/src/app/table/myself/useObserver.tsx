@@ -7,21 +7,18 @@ const useObserver = (ref: MutableRefObject<any>,
     const observer = useRef<IntersectionObserver | null>(null);
 
     useEffect(() => {
-        if (isDone) {
-            return;
-        }
+
         if (observer.current) {
             observer.current.disconnect();
         }
         const cb = ([entry]: any, observer: any) => {
             if (entry.isIntersecting) {
-                callback(false);
-            } else {
-                if (entry.boundingClientRect.top > 0) {
+                if (isDone) {
+                    return;
                 }
+                callback(false);
             }
         };
-
         observer.current = new IntersectionObserver(cb, options);
         observer.current.observe(ref.current);
     }, [isDone]);

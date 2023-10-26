@@ -23,7 +23,7 @@ const ErrorWrapper = ({value, setValue, children, error, title}: ErrorWrapperPro
                     {title}
                 </ClassicInput>
             }
-            {error && <div className={'absolute -bottom-7'}>
+            {error && <div className={'absolute w-max -bottom-7'}>
                 <ValidationError>{error}</ValidationError>
             </div>}
         </div>
