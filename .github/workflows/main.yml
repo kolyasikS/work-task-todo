@@ -1,8 +1,14 @@
-name: Demo Workflow
-on: [workflow_dispatch]
+name: Next Actions
+on: push
 jobs:
-  print: 
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Print to console
-        run: echo Hello GH Actions!
+  build:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Move to client dir
+        run: cd client/
+      - name: Install dependencies
+        run: npm ci
+      - name: Test app
+        run: npm run test
