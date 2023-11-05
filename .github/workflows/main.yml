@@ -8,6 +8,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Move to client dir
         run: cd client/
+      - name: Print all dir
+        run: ls
       - name: Print current dir
         run: pwd
       - name: Install dependencies
