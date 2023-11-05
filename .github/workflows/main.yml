@@ -6,13 +6,9 @@ jobs:
     steps:
       - name: Get repository code
         uses: actions/checkout@v3
-      - name: Move to client dir
-        run: cd client/
-      - name: Print all dir
-        run: ls
-      - name: Print current dir
-        run: pwd
       - name: Install dependencies
+        working-directory: ./client
         run: npm ci
       - name: Test app
+        working-directory: ./client
         run: npm run test
